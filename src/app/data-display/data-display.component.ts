@@ -21,6 +21,14 @@ export class DataDisplayComponent implements OnInit {
       .subscribe((data: any) => {
         console.log(data);
         this.data = data;
-      });
+      },
+      error => {
+        console.log(error);
+        //this.errors = error
+    }
+    
+    );
+      
+      
   }
 }
