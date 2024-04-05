@@ -12,18 +12,20 @@ import { Component, OnInit, inject } from '@angular/core';
 export class DataDisplayComponent implements OnInit {
   httpClient = inject(HttpClient);
   data: any[] = [];
+  error:any='';
   ngOnInit(): void {
     this.getData();
   }
   getData() {
     this.httpClient
-      .get('https://jsonplaceholder.typicode.com/posts')
+      .get('https://jsonplaceholder.typicode.com/posts1')
       .subscribe((data: any) => {
         console.log(data);
         this.data = data;
       },
       error => {
         console.log(error);
+        this.error=error.message;
         //this.errors = error
     }
     
